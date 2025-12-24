@@ -1,0 +1,16 @@
+keys:
+  - &diogo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICCTbCHJ0avif6MQ7izXlHHaubNsOhU2xf9lMvXKLyUQ
+
+  - &lotus age1zqz4ekzgqdk3zr85k8y470800shwdkdxcfuvvtsj66fatds4ru7qqxukxc
+
+creation_rules:
+  - path_regex: ^secrets/diogo\.yaml$
+    key_groups:
+      - age:
+          - *diogo
+
+  - path_regex: ^secrets/services/[^/]+\.yaml$
+    key_groups:
+      - age:
+          - *diogo
+          - *lotus
