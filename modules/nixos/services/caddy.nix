@@ -16,8 +16,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    sops.secrets.cloudflare = {
-      sopsFile = "${self}/secrets/services/cloudflare.yaml";
+    sops.secrets.bunny = {
+      sopsFile = "${self}/secrets/services/bunny.yaml";
       owner = "caddy";
       group = "caddy";
     };
@@ -36,8 +36,8 @@ in
       defaults.email = "hello@${cfg.domain}";
       certs.${cfg.domain} = {
         extraDomainNames = [ "*.${cfg.domain}" ];
-        dnsProvider = "cloudflare";
-        credentialsFile = config.sops.secrets.cloudflare.path;
+        dnsProvider = "bunny";
+        credentialsFile = config.sops.secrets.bunny.path;
       };
     };
 
