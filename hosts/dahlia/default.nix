@@ -9,15 +9,9 @@
     profiles.headless.enable = true;
 
     services = {
-      # keep-sorted start block=yes
-      caddy.enable = true;
-      grafana.enable = true;
+      # keep-sorted start
       node-exporter.enable = true;
-      prometheus = {
-        enable = true;
-        scrapeTargets = [ "100.100.20.2:9100" ];
-      };
-      website.enable = true;
+      postgresql.enable = true;
       # keep-sorted end
     };
 

@@ -62,6 +62,7 @@ in
         "font-maple-mono"
         "signal"
         "sketch@beta"
+        "steam"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.gaming.enable [
@@ -69,7 +70,6 @@ in
         "crossover"
         "nvidia-geforce-now"
         "prismlauncher"
-        "steam"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.laptop.enable [

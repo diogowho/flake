@@ -9,6 +9,10 @@
 
     hosts = {
       # keep-sorted start block=yes newline_separated=yes
+      dahlia = {
+        modules = [ inputs.disko.nixosModules.disko ];
+      };
+
       lotus = {
         modules = [ inputs.disko.nixosModules.disko ];
       };

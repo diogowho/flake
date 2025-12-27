@@ -21,8 +21,6 @@ in
       enable = true;
       package = pkgs.postgresql_18;
 
-      port = cfg.port;
-
       ensureUsers = [
         {
           name = "postgres";
@@ -49,6 +47,7 @@ in
 
       # https://pgconfigurator.cybertec.at/
       settings = {
+        port = cfg.port;
         log_connections = true;
         log_statement = "all";
         logging_collector = true;
