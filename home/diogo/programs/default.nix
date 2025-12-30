@@ -19,15 +19,9 @@
     inherit (pkgs)
       # keep-sorted start
       age
-      cargo
-      github-copilot-cli
-      go
       just
       nil
       nixd
-      nodejs
-      pnpm_9
-      rustc
       sops
       # keep-sorted end
       ;
