@@ -15,6 +15,8 @@
     # keep-sorted end
   ];
 
+  users.mutableUsers = false;
+
   nix = {
     gc.dates = "Mon *-*-* 04:00";
 

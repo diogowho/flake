@@ -1,9 +1,11 @@
 {
   imports = [
+    # keep-sorted start
+    ../../home
+    ./mkuser.nix
+    ./nix.nix
     ./packages.nix
     ./profiles.nix
-    ../../home
-    ./nix.nix
-    ./mkuser.nix
+    # keep-sorted end
   ];
 }
