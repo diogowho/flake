@@ -9,7 +9,7 @@
     initContent = ''
       source <(fzf --zsh)
       echo -e "\e[35m"
-      /bin/cat <<'EOF'
+      cat <<'EOF'
         ╱|、
        (˚ˎ。7
        |、˜〵
@@ -28,7 +28,7 @@
     '';
 
     shellAliases = {
-      cat = "bat";
+      # cat = "bat";
       cd = "z";
       cp = "cp -iv";
       mv = "mv -iv";
