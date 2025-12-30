@@ -9,7 +9,7 @@ in
 {
   users.users.diogo = mergeAttrsList [
     {
-      shell = "/run/current-system/sw/bin/zsh";
+      shell = "/etc/profiles/per-user/diogo/bin/zsh";
     }
 
     (optionalAttrs (_class == "darwin") {
