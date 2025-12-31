@@ -1,9 +1,6 @@
 {
   sys = {
-    profiles = {
-      graphical.enable = true;
-      laptop.enable = true;
-    };
+    profiles.graphical.enable = true;
 
     services.yabai.enable = true;
   };

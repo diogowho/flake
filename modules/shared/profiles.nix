@@ -7,6 +7,6 @@ in
     graphical.enable = mkEnableOption "Graphical Interface";
     headless.enable = mkEnableOption "Headless";
     gaming.enable = mkEnableOption "Gaming";
-    laptop.enable = mkEnableOption "Laptop";
+    workstation.enable = mkEnableOption "Workstation";
   };
 }

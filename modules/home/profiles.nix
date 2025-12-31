@@ -8,6 +8,7 @@ in
       graphical
       headless
       gaming
+      workstation
       ;
   };
 }

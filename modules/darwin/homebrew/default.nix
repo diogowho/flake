@@ -43,7 +43,7 @@ in
         "uBlock Origin Lite" = 6745342698;
         # keep-sorted end
       }
-      // optionalAttrs (!config.sys.profiles.laptop.enable) {
+      // optionalAttrs (config.sys.profiles.workstation.enable) {
         # keep-sorted start
         "Xcode" = 497799835;
         # keep-sorted end
@@ -61,7 +61,6 @@ in
 
       casks = [
         # keep-sorted start
-        "discord"
         "element"
         "font-maple-mono"
         "signal"
