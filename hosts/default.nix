@@ -4,19 +4,13 @@
 
   config.easy-hosts = {
     perClass = class: {
-      modules = [ "${self}/modules/${class}" ];
+      modules = [
+        "${self}/modules/${class}/default.nix"
+      ];
     };
 
     hosts = {
       # keep-sorted start block=yes newline_separated=yes
-      dahlia = {
-        modules = [ inputs.disko.nixosModules.disko ];
-      };
-
-      lotus = {
-        modules = [ inputs.disko.nixosModules.disko ];
-      };
-
       violet = {
         arch = "aarch64";
         class = "darwin";

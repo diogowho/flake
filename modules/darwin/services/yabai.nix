@@ -1,17 +1,15 @@
 {
-  self,
   lib,
   config,
   ...
 }:
 let
-  inherit (lib) mkIf;
-  inherit (self.lib) mkServiceOption;
+  inherit (lib) mkIf mkEnableOption;
 
   cfg = config.sys.services.yabai;
 in
 {
-  options.sys.services.yabai = mkServiceOption "yabai" { };
+  options.sys.services.yabai.enable = mkEnableOption "yabai";
 
   config = mkIf cfg.enable {
     services.yabai = {

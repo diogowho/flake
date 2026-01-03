@@ -5,7 +5,7 @@
   imports = [
     inputs.home-manager.darwinModules.home-manager
     # keep-sorted start
-    ../shared
+    ../base
     ./homebrew
     ./networking
     ./preferences

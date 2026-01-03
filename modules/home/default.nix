@@ -3,8 +3,8 @@
 
   imports = [
     # keep-sorted start
-    ../shared/packages.nix
-    ../shared/profiles.nix
+    ../base/packages.nix
+    ../base/profiles.nix
     ./home.nix
     ./profiles.nix
     ./secrets.nix

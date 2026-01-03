@@ -13,9 +13,5 @@ in
 
   config = mkIf cfg.enable {
     services.openssh.enable = true;
-
-    users.users.diogo.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICCTbCHJ0avif6MQ7izXlHHaubNsOhU2xf9lMvXKLyUQ"
-    ];
   };
 }

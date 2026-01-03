@@ -4,7 +4,11 @@
   ...
 }:
 let
-  inherit (lib) mkDefault mergeAttrsList optionalAttrs;
+  inherit (lib)
+    mkDefault
+    mergeAttrsList
+    optionalAttrs
+    ;
 in
 {
   users.users.diogo = mergeAttrsList [
@@ -17,7 +21,6 @@ in
     })
 
     (optionalAttrs (_class == "nixos") {
-      hashedPassword = "$6$h/hPw1aKAbw/WKxy$IEnxYGD/esK890EjR5i4TlrDj6ph4DfZpiUdQ2FZp/LqXAkNzSN2BXUlmL4QQWJHsvjlbzIvULeLigfATRzyC.";
       home = "/home/diogo";
       uid = mkDefault 1000;
       isNormalUser = true;

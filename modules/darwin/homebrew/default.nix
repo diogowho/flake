@@ -61,6 +61,7 @@ in
 
       casks = [
         # keep-sorted start
+        "discord"
         "element"
         "font-maple-mono"
         "signal"

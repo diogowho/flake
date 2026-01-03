@@ -1,6 +1,6 @@
 flake := env('FLAKE', justfile_directory()) 
 rebuild := if os() == "macos" { "sudo darwin-rebuild" } else { "nixos-rebuild" }
-system-args := if os() != "macos" { "--sudo --no-reexec" } else { "" }
+system-args := if os() == "macos" { "" } else { "--sudo --no-reexec" }
 
 [private]
 default:
@@ -17,19 +17,20 @@ builder goal *args:
 [group('rebuild')]
 switch *args: (builder "switch" args)
 
-[group('rebuild')]
-deploy host *args: (builder "switch" "--target-host " + host "--use-substitutes " + args)
+# [group('rebuild')]
+# deploy host *args: (builder "switch" "--target-host " + host "--use-substitutes " + args)
 
-[group('rebuild')]
-provision host:
-  nix run github:nix-community/nixos-anywhere -- \
-    --flake {{ flake }} \
-    --target-host {{ host }}
+# [group('rebuild')]
+# install host:
+#   nix run github:nix-community/nixos-anywhere -- \
+#     --flake {{ flake }} \
+#     --target-host {{ host }}
 
 [group('rebuild')]
 [macos]
-setup host:
+provision host:
   sudo nix run github:nix-darwin/nix-darwin -- switch --flake {{ flake }}#{{ host }}
+  sudo -i nix-env --uninstall lix
 
 [group('utils')]
 clean:
@@ -38,8 +39,8 @@ clean:
 
 [group('utils')]
 rotate:
-  /usr/bin/find secrets/ -name "*.yaml" | xargs -I {} sops rotate -i {}
-  /usr/bin/find secrets/ -name "*.yaml" | xargs -I {} sops updatekeys -y {}
+  find secrets/ -name "*.yaml" | xargs -I {} sops rotate -i {}
+  find secrets/ -name "*.yaml" | xargs -I {} sops updatekeys -y {}
 
 [group('utils')]
 update:

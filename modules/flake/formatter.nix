@@ -1,19 +1,29 @@
 {
   perSystem =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
     {
       formatter = pkgs.treefmt.withConfig {
         runtimeInputs = with pkgs; [
+          # keep-sorted start
+          keep-sorted
           nixfmt
           shfmt
-          keep-sorted
+          stylua
+          # keep-sorted end
         ];
 
         settings = {
           on-unmatched = "info";
           tree-root-file = "flake.nix";
+          excludes = [ "secrets/*" ];
 
           formatter = {
+            # keep-sorted start block=yes newline_separated=yes
+            keep-sorted = {
+              command = "keep-sorted";
+              includes = [ "*" ];
+            };
+
             nixfmt = {
               command = "nixfmt";
               includes = [ "*.nix" ];
@@ -29,13 +39,15 @@
               ];
               includes = [
                 "*.sh"
+                "*.envrc"
               ];
             };
 
-            keep-sorted = {
-              command = "keep-sorted";
-              includes = [ "*" ];
+            stylua = {
+              command = "stylua";
+              includes = [ "*.lua" ];
             };
+            # keep-sorted end
           };
         };
       };

@@ -1,8 +1,6 @@
 {
   self,
-  self',
   inputs,
-  inputs',
   ...
 }:
 {
@@ -14,9 +12,7 @@
     extraSpecialArgs = {
       inherit
         self
-        self'
         inputs
-        inputs'
         ;
     };
 

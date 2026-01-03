@@ -5,7 +5,7 @@
     enable = true;
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICCTbCHJ0avif6MQ7izXlHHaubNsOhU2xf9lMvXKLyUQ";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMT6iIuLEVTZh0XgYxD5pqAthx1JuiE8M7SwQo+wFBC+";
       format = "ssh";
       signByDefault = true;
     };

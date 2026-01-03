@@ -19,20 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    diogopkgs = {
-      type = "github";
-      owner = "diogowho";
-      repo = "pkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    disko = {
-      type = "github";
-      owner = "nix-community";
-      repo = "disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     easy-hosts = {
       type = "github";
       owner = "tgirlcloud";
@@ -69,10 +55,5 @@
   };
 
   outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        ./flake
-      ];
-    };
+    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./modules/flake ]; };
 }

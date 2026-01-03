@@ -1,13 +1,17 @@
-{ _class, ... }:
+{ _class, pkgs, ... }:
 let
   sudoers = if (_class == "nixos") then "@wheel" else "@admin";
 in
 {
   nix = {
+    package = pkgs.lixPackageSets.stable.lix;
+
     gc = {
       automatic = true;
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 3d";
     };
+
+    channel.enable = false;
 
     optimise.automatic = true;
 
@@ -23,6 +27,10 @@ in
       accept-flake-config = false;
 
       use-xdg-base-directories = true;
+
+      auto-optimise-store = true;
+
+      keep-going = true;
 
       warn-dirty = false;
     };
