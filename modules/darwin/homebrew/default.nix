@@ -55,6 +55,10 @@ in
         "docker"
         "docker-compose"
         "mas"
+        # keep-sorted end
+      ]
+      ++ optionals config.sys.profiles.workstation.enable [
+        # keep-sorted start
         "ollama"
         # keep-sorted end
       ];
