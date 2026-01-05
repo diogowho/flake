@@ -16,8 +16,6 @@
       cmp-nvim-lsp
       cmp-path
       conform-nvim
-      copilot-cmp
-      copilot-lua
       cord-nvim
       gitsigns-nvim
       lualine-nvim

@@ -1,7 +1,5 @@
 local cmp = require("cmp")
 
-require("copilot_cmp").setup()
-
 cmp.setup({
 	formatting = {
 		format = function(entry, vim_item)
@@ -11,7 +9,6 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				luasnip = "[LuaSnip]",
 				nvim_lua = "[Lua]",
-				copilot = "[Copilot]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -62,7 +59,6 @@ cmp.setup({
 		},
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "copilot" },
 		{ name = "luasnip" },
 		{ name = "nvim_lua" },
 	}),
@@ -508,11 +504,6 @@ vim.keymap.set("n", "<leader>?", function()
 end, { desc = "Buffer Local Keymaps (which-key)" })
 
 require("cord").setup({})
-
-require("copilot").setup({
-	suggestion = { enabled = false },
-	panel = { enabled = false },
-})
 
 require("catppuccin").setup({
 	flavour = "mocha",

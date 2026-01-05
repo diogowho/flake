@@ -55,6 +55,7 @@ in
         "docker"
         "docker-compose"
         "mas"
+        "ollama"
         # keep-sorted end
       ];
 
