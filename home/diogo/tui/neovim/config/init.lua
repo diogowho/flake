@@ -64,7 +64,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "copilot" },
 		{ name = "luasnip" },
-		{ mame = "nvim_lua" },
+		{ name = "nvim_lua" },
 	}),
 	experimental = {
 		ghost_text = false,
@@ -124,7 +124,62 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+local lsp_present, lspconfig = pcall(require, "lspconfig")
+
+if not lsp_present then
+	vim.notify("lspconfig not present", vim.log.levels.ERROR)
+	return
+end
+
+vim.lsp.config("*", {
+	root_markers = { ".git" },
+	capabilities = {
+		textDocument = {
+			semanticTokens = {
+				multilineTokenSupport = true,
+			},
+		},
+	},
+})
+
 local servers = {
+	-- keep-sorted start block=yes newline_separated=yes
+	astro = {},
+
+	emmet_language_server = {
+		filetypes = {
+			"vue",
+			"astro",
+			"css",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"typescriptreact",
+		},
+	},
+
+	gopls = {},
+
+	jsonls = {
+		settings = {
+			json = {
+				validate = { enable = true },
+				schemas = {
+					{
+						fileMatch = { "package.json" },
+						url = "https://www.schemastore.org/package.json",
+					},
+					{
+						fileMatch = { "tsconfig*.json" },
+						url = "https://www.schemastore.org/tsconfig.json",
+					},
+				},
+			},
+		},
+	},
+
+	just = {},
+
 	lua_ls = {
 		settings = {
 			Lua = {
@@ -138,6 +193,48 @@ local servers = {
 			},
 		},
 	},
+
+	nil_ls = {
+		cmd = { "nil" },
+		settings = {
+			["nil"] = {
+				diagnostics = {
+					bindingEndHintMinLines = 2,
+				},
+				nix = { maxMemoryMB = nil },
+			},
+		},
+	},
+
+	rust_analyzer = {},
+
+	sourcekit = {},
+
+	tailwindcss = {
+		filetypes = {
+			"vue",
+			"astro",
+			"javascriptreact",
+			"typescriptreact",
+			"html",
+			"css",
+		},
+	},
+
+	vtsls = {
+		root_dir = function(fname)
+			local root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json")(fname)
+			if root_dir then
+				local node_modules_index = root_dir:find("node_modules", 1, true)
+				if node_modules_index and node_modules_index > 0 then
+					root_dir = root_dir:sub(1, node_modules_index - 2)
+				end
+			end
+			return root_dir
+		end,
+	},
+
+	vue_ls = {},
 
 	yamlls = {
 		settings = {
@@ -159,92 +256,7 @@ local servers = {
 			},
 		},
 	},
-
-	jsonls = {
-		settings = {
-			json = {
-				validate = { enable = true },
-				schemas = {
-					{
-						fileMatch = { "package.json" },
-						url = "https://www.schemastore.org/package.json",
-					},
-					{
-						fileMatch = { "tsconfig*.json" },
-						url = "https://www.schemastore.org/tsconfig.json",
-					},
-				},
-			},
-		},
-	},
-
-	vtsls = {
-		settings = {
-			vtsls = {
-				tsserver = {
-					globalPlugins = {
-						{
-							name = "@vue/typescript-plugin",
-							location = "~/.bun/bin/vue-language-server",
-							languages = { "vue" },
-							configNamespace = "typescript",
-						},
-					},
-				},
-			},
-		},
-		filetypes = { "typescript", "javascript", "vue" },
-	},
-
-	vue_ls = {},
-
-	nil_ls = {
-		cmd = { "nil" },
-		settings = {
-			["nil"] = {
-				diagnostics = {
-					bindingEndHintMinLines = 2,
-				},
-				nix = { maxMemoryMB = nil },
-			},
-		},
-		filetypes = { "nix" },
-	},
-
-	just = {},
-
-	-- dockerls = {},
-
-	astro = {},
-
-	emmet_language_server = {
-		filetypes = {
-			"vue",
-			"astro",
-			"css",
-			"html",
-			"javascript",
-			"javascriptreact",
-			"typescriptreact",
-		},
-	},
-
-	tailwindcss = {
-		filetypes = {
-			"vue",
-			"astro",
-			"javascriptreact",
-			"typescriptreact",
-			"html",
-			"css",
-		},
-	},
-
-	gopls = {},
-
-	rust_analyzer = {},
-
-	sourcekit = {},
+	-- keep-sorted end
 }
 
 vim.diagnostic.config({
