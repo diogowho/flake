@@ -11,6 +11,8 @@
       rustc
       rustfmt
       sops
+      nodejs_24
+      pnpm_9
       # keep-sorted end
       ;
   };
