@@ -1,13 +1,16 @@
+{ config, ... }:
 {
   imports = [
     # keep-sorted start
     ./dock.nix
+    ./finder.nix
     ./keyboard.nix
     ./safari.nix
     # keep-sorted end
   ];
 
   system.defaults = {
+    # keep-sorted start block=yes newline_separated=yes
     NSGlobalDomain = {
       AppleShowScrollBars = "WhenScrolling";
       AppleShowAllExtensions = true;
@@ -23,35 +26,6 @@
       EnableStandardClickToShowDesktop = false;
     };
 
-    screensaver = {
-      askForPassword = true;
-      askForPasswordDelay = 0;
-    };
-
-    finder = {
-      ShowPathbar = true;
-      FXEnableExtensionChangeWarning = false;
-      AppleShowAllExtensions = true;
-      AppleShowAllFiles = true;
-      FXRemoveOldTrashItems = true;
-      ShowHardDrivesOnDesktop = true;
-    };
-
-    CustomUserPreferences."com.apple.finder" = {
-      ShowExternalHardDrivesOnDesktop = true;
-      ShowHardDrivesOnDesktop = true;
-      ShowMountedServersOnDesktop = true;
-      ShowRemovableMediaOnDesktop = true;
-      _FXSortFoldersFirst = true;
-      FXDefaultSearchScope = "SCcf";
-      WarnOnEmptyTrash = false;
-    };
-
-    loginwindow = {
-      GuestEnabled = false;
-      SHOWFULLNAME = false;
-    };
-
     controlcenter = {
       BatteryShowPercentage = true;
       Bluetooth = false;
@@ -59,7 +33,23 @@
       FocusModes = false;
       NowPlaying = false;
       Sound = false;
+      AirDrop = false;
     };
+
+    loginwindow = {
+      GuestEnabled = false;
+      SHOWFULLNAME = false;
+    };
+
+    magicmouse.MouseButtonMode = "TwoButton";
+
+    screensaver = {
+      askForPassword = !config.sys.profiles.workstation.enable;
+      askForPasswordDelay = 0;
+    };
+
+    trackpad.ActuateDetents = true;
+    # keep-sorted end
   };
 
   system.activationScripts.postActivate.text = ''

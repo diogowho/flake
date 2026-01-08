@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
 {
   _class = "darwin";
 
@@ -18,5 +23,10 @@
   system = {
     stateVersion = 6;
     primaryUser = "diogo";
+  };
+
+  power = lib.mkIf config.sys.profiles.workstation.enable {
+    restartAfterFreeze = true;
+    restartAfterPowerFailure = true;
   };
 }

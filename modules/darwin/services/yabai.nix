@@ -25,7 +25,7 @@ in
         window_gap = 8;
         external_bar = "main:0:0";
       };
-      extraConfig = ''
+      extraConfig = /* bash */ ''
         yabai -m space 1 --label web
         yabai -m rule --add app="Safari" space=web
 

@@ -36,6 +36,7 @@ in
         # keep-sorted start
         "Bitwarden" = 1352778147;
         "Kagi" = 1622835804;
+        "Qwant" = 1645050159;
         "SponsorBlock" = 1573461917;
         "Userscripts" = 1463298887;
         "WhatsApp" = 310633997;
@@ -51,10 +52,14 @@ in
       brews = [
         # keep-sorted start
         "bitwarden-cli"
-        "colima"
         "docker"
         "docker-compose"
         "mas"
+        {
+          name = "colima";
+          start_service = true;
+          restart_service = true;
+        }
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.workstation.enable [
