@@ -41,11 +41,11 @@
       nil
       nixd
       nixfmt-rfc-style
+      nodePackages.typescript
       prettier
       ripgrep
       rust-analyzer
       tailwindcss-language-server
-      nodePackages.typescript
       vtsls
       vue-language-server
       yaml-language-server

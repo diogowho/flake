@@ -8,11 +8,11 @@
       just
       nil
       nixd
+      nodejs_24
+      pnpm_9
       rustc
       rustfmt
       sops
-      nodejs_24
-      pnpm_9
       # keep-sorted end
       ;
   };
