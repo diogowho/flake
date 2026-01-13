@@ -40,6 +40,7 @@ in
         "SponsorBlock" = 1573461917;
         "Userscripts" = 1463298887;
         "WhatsApp" = 310633997;
+        "WireGuard" = 1451685025;
         "uBlock Origin Lite" = 6745342698;
         # keep-sorted end
       }
@@ -75,6 +76,7 @@ in
         "font-maple-mono"
         "sketch@beta"
         "steam"
+        "raycast"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.gaming.enable [
