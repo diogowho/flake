@@ -28,8 +28,6 @@ in
 
       use-xdg-base-directories = true;
 
-      auto-optimise-store = true;
-
       keep-going = true;
 
       warn-dirty = false;
