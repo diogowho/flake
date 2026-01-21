@@ -21,9 +21,9 @@
     envExtra = ''
       ${
         if pkgs.stdenv.hostPlatform.isDarwin then
-          ''export SSH_AUTH_SOCK=~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock''
+          "export SSH_AUTH_SOCK=~/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
         else
-          ''''
+          ""
       }
     '';
   };
