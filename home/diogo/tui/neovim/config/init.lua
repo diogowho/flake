@@ -436,6 +436,11 @@ require("telescope").setup({
 		},
 		file_ignore_patterns = { "bun.lock" },
 	},
+	pickers = {
+		find_files = {
+			hidden = true,
+		},
+	},
 	extensions = {
 		fzf = {
 			fuzzy = true,
@@ -486,7 +491,7 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_netrw = true,
 	update_focused_file = { enable = true },
-	filters = { dotfiles = false },
+	filters = { dotfiles = false, git_ignored = false },
 	git = { enable = true },
 	actions = {
 		open_file = {

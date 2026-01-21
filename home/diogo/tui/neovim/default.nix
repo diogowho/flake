@@ -40,7 +40,7 @@
       lua-language-server
       nil
       nixd
-      nixfmt-rfc-style
+      nixfmt
       nodePackages.typescript
       prettier
       ripgrep
