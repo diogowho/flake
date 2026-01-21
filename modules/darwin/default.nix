@@ -28,5 +28,9 @@
   power = lib.mkIf config.sys.profiles.workstation.enable {
     restartAfterFreeze = true;
     restartAfterPowerFailure = true;
+    sleep = {
+      computer = "never";
+      display = 5;
+    };
   };
 }
