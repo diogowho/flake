@@ -53,14 +53,7 @@ in
       brews = [
         # keep-sorted start
         "bitwarden-cli"
-        "docker"
-        "docker-compose"
-        "mas"
-        {
-          name = "colima";
-          start_service = true;
-          restart_service = true;
-        }
+        "mole"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.workstation.enable [
@@ -74,9 +67,10 @@ in
         "discord"
         "element"
         "font-maple-mono"
+        "orbstack"
+        "raycast"
         "sketch@beta"
         "steam"
-        "raycast"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.gaming.enable [
