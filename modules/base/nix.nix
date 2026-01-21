@@ -1,11 +1,9 @@
-{ _class, pkgs, ... }:
+{ _class, ... }:
 let
   sudoers = if (_class == "nixos") then "@wheel" else "@admin";
 in
 {
   nix = {
-    package = pkgs.lixPackageSets.stable.lix;
-
     gc = {
       automatic = true;
       options = "--delete-older-than 3d";
