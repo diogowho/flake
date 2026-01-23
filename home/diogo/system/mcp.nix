@@ -7,6 +7,14 @@
         url = "https://mcp.context7.com/mcp";
       };
 
+      astro = {
+        url = "https://mcp.docs.astro.build/mcp";
+      };
+
+      cloudflare = {
+        url = "https://docs.mcp.cloudflare.com/mcp";
+      };
+
       opensrc = {
         command = "npx";
         args = [
