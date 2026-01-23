@@ -11,8 +11,11 @@
     profiles.headless.enable = true;
 
     services = {
+      # keep-sorted start
       caddy.enable = true;
+      pocket-id.enable = true;
       uptime-kuma.enable = true;
+      # keep-sorted end
     };
   };
 
