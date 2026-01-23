@@ -41,13 +41,11 @@
       nil
       nixd
       nixfmt
-      nodePackages.typescript
       prettier
       ripgrep
       rust-analyzer
       tailwindcss-language-server
       vtsls
-      vue-language-server
       yaml-language-server
       # keep-sorted end
     ];
