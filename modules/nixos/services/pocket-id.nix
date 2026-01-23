@@ -43,7 +43,7 @@ in
           # keep-sorted start
           ALLOW_USER_SIGNUPS = "disabled";
           ANALYTICS_DISABLED = true;
-          APP_URL = cfg.domain;
+          APP_URL = "https://${cfg.domain}";
           EMAILS_VERIFIED = true;
           PORT = cfg.port;
           TRUST_PROXY = true;
