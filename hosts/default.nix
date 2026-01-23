@@ -11,6 +11,10 @@
 
     hosts = {
       # keep-sorted start block=yes newline_separated=yes
+      aria = {
+        modules = [ inputs.disko.nixosModules.disko ];
+      };
+
       violet = {
         arch = "aarch64";
         class = "darwin";

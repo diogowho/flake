@@ -20,11 +20,11 @@ switch *args: (builder "switch" args)
 # [group('rebuild')]
 # deploy host *args: (builder "switch" "--target-host " + host "--use-substitutes " + args)
 
-# [group('rebuild')]
-# install host:
-#   nix run github:nix-community/nixos-anywhere -- \
-#     --flake {{ flake }} \
-#     --target-host {{ host }}
+[group('rebuild')]
+install host:
+  nix run github:nix-community/nixos-anywhere -- \
+    --flake {{ flake }} \
+    --target-host {{ host }}
 
 [group('rebuild')]
 [macos]

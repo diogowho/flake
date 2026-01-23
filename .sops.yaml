@@ -1,6 +1,8 @@
 keys:
   - &diogo ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMT6iIuLEVTZh0XgYxD5pqAthx1JuiE8M7SwQo+wFBC+
 
+  - &aria age1hsgnx9cw54lmjechwcznhw00qjzujv0vlusvjzjd2dp832t679sqvuxexq
+
 creation_rules:
   - path_regex: ^secrets/diogo\.yaml$
     key_groups:
@@ -11,3 +13,4 @@ creation_rules:
     key_groups:
       - age:
           - *diogo
+          - *aria
