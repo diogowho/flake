@@ -76,6 +76,10 @@ in
               address = "2a14:6f44:f00d::2";
               prefixLength = 64;
             }
+            {
+              address = "fe80::2";
+              prefixLength = 64;
+            }
           ];
 
           routes = [
