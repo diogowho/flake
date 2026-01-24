@@ -37,8 +37,9 @@ in
         "Bitwarden" = 1352778147;
         "Kagi" = 1622835804;
         "Qwant" = 1645050159;
+        "Sink It for Reddit" = 6449873635;
         "SponsorBlock" = 1573461917;
-        "Userscripts" = 1463298887;
+        "Tampermonkey" = 6738342400;
         "WhatsApp" = 310633997;
         "WireGuard" = 1451685025;
         "uBlock Origin Lite" = 6745342698;
@@ -71,6 +72,7 @@ in
         "raycast"
         "sketch@beta"
         "steam"
+        "music-presence"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.gaming.enable [
