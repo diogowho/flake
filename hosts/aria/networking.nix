@@ -29,50 +29,76 @@ in
     dhcpcd.enable = mkForce false;
     usePredictableInterfaceNames = mkForce false;
 
-    interfaces.${interface} = {
-      ipv4 = {
-        addresses = [
-          {
-            address = ipv4;
-            prefixLength = 32;
-          }
-        ];
+    interfaces = {
+      ${interface} = {
+        ipv4 = {
+          addresses = [
+            {
+              address = ipv4;
+              prefixLength = 32;
+            }
+          ];
 
-        routes = [
-          {
-            address = gateway4;
-            prefixLength = 32;
-          }
-        ];
+          routes = [
+            {
+              address = gateway4;
+              prefixLength = 32;
+            }
+          ];
+        };
+
+        ipv6 = {
+          addresses = [
+            {
+              address = ipv6;
+              prefixLength = 64;
+            }
+            {
+              address = "fe80::9000:7ff:fe0b:20a0";
+              prefixLength = 64;
+            }
+          ];
+
+          routes = [
+            {
+              address = gateway6;
+              prefixLength = 128;
+            }
+          ];
+        };
       };
 
-      ipv6 = {
-        addresses = [
-          {
-            address = ipv6;
-            prefixLength = 64;
-          }
-          {
-            address = "fe80::9000:7ff:fe0b:20a0";
-            prefixLength = 64;
-          }
-        ];
+      "sit-207118" = {
+        mtu = 1472;
+        ipv6 = {
+          addresses = [
+            {
+              address = "2a14:6f44:f00d::2";
+              prefixLength = 64;
+            }
+          ];
 
-        routes = [
-          {
-            address = gateway6;
-            prefixLength = 128;
-          }
-        ];
+          routes = [
+            {
+              address = "::";
+              prefixLength = 0;
+              via = "2a14:6f44:f00d::1";
+            }
+          ];
+        };
       };
     };
 
     sits = {
-      "207118" = {
+      "sit-207118" = {
         remote = "118.91.186.15";
         local = ipv4;
         ttl = 255;
+        dev = interface;
+        encapsulation.type = "6in4";
       };
     };
+
+    firewall.allowedTCPPorts = [ 179 ];
   };
 }
