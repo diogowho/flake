@@ -75,31 +75,6 @@ in
         };
       };
 
-      "sit-207118" = {
-        mtu = 1472;
-        ipv6 = {
-          addresses = [
-            {
-              address = "2a14:6f44:f00d::2";
-              prefixLength = 64;
-            }
-            {
-              address = "fe80::2";
-              prefixLength = 64;
-            }
-          ];
-
-          routes = [
-            {
-              address = "::";
-              prefixLength = 0;
-              via = "2a14:6f44:f00d::1";
-              table = 200;
-            }
-          ];
-        };
-      };
-
       "lo".ipv6.routes = [
         {
           address = "2a14:6f44:f00d::";
