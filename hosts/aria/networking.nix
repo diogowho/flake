@@ -87,6 +87,14 @@ in
           ];
         };
       };
+
+      "lo".ipv6.routes = [
+        {
+          address = "2a14:6f44:f00d::";
+          prefixLength = 48;
+          type = "unreachable";
+        }
+      ];
     };
 
     sits = {
