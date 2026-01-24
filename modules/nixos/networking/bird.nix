@@ -14,7 +14,10 @@ in
   options.sys.networking.bird.enable = mkEnableOption "BIRD";
 
   config = mkIf cfg.enable {
-    networking.firewall.allowedTCPPorts = [ 179 ];
+    networking.firewall = {
+      allowedTCPPorts = [ 179 ];
+      checkReversePath = "loose";
+    };
 
     services.bird = {
       enable = true;
