@@ -68,11 +68,11 @@ in
         "discord"
         "element"
         "font-maple-mono"
+        "music-presence"
         "orbstack"
         "raycast"
         "sketch@beta"
         "steam"
-        "music-presence"
         # keep-sorted end
       ]
       ++ optionals config.sys.profiles.gaming.enable [

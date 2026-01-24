@@ -9,6 +9,7 @@ in
 {
   imports = [
     # keep-sorted start
+    ./bird.nix
     ./fail2ban.nix
     ./firewall.nix
     ./openssh.nix

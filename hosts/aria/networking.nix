@@ -92,7 +92,6 @@ in
         {
           address = "2a14:6f44:f00d::";
           prefixLength = 48;
-          type = "unreachable";
         }
       ];
     };
@@ -106,7 +105,5 @@ in
         encapsulation.type = "6in4";
       };
     };
-
-    firewall.allowedTCPPorts = [ 179 ];
   };
 }

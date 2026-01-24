@@ -17,6 +17,8 @@
       uptime-kuma.enable = true;
       # keep-sorted end
     };
+
+    networking.bird.enable = true;
   };
 
   system.stateVersion = "25.11";
