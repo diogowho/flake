@@ -26,6 +26,13 @@ in
       interface = interface;
     };
 
+    iproute2 = {
+      enable = true;
+      rttablesExtraConfig = ''
+        200 bgp_return
+      '';
+    };
+
     dhcpcd.enable = mkForce false;
     usePredictableInterfaceNames = mkForce false;
 
@@ -87,6 +94,7 @@ in
               address = "::";
               prefixLength = 0;
               via = "2a14:6f44:f00d::1";
+              table = 200;
             }
           ];
         };
@@ -108,6 +116,35 @@ in
         dev = interface;
         encapsulation.type = "6in4";
       };
+    };
+  };
+
+  systemd.network = {
+    enable = true;
+
+    networks."40-sit-207118" = {
+      matchConfig.Name = "sit-207118";
+
+      address = [
+        "2a14:6f44:f00d::2/64"
+        "fe80::2/64"
+      ];
+
+      routingPolicyRules = [
+        {
+          From = "2a14:6f44:f00d::/48";
+          Table = 200;
+          Priority = 32000;
+        }
+      ];
+
+      routes = [
+        {
+          Destination = "::/0";
+          Gateway = "2a14:6f44:f00d::1";
+          Table = 200;
+        }
+      ];
     };
   };
 }
