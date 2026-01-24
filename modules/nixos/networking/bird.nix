@@ -40,7 +40,7 @@ in
         }
 
         protocol bgp ifog_peer {
-          local as 207118
+          local as 207118;
           neighbor 2a14:6f44:f00d::1 as 34927;
 
           ipv6 {
