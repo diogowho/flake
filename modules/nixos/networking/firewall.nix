@@ -25,7 +25,7 @@ in
         logReversePathDrops = true;
         logRefusedConnections = false;
 
-        checkReversePath = mkForce false;
+        # checkReversePath = mkForce false;
       };
     };
   };
