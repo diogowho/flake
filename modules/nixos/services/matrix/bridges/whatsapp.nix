@@ -33,7 +33,7 @@ in
           };
           database = {
             type = "sqlite3-fk-wal";
-            uri = "file:${config.services.mautrix-discord.dataDir}/mautrix-whatsapp.db?_txlock=immediate";
+            uri = "file:/var/lib/mautrix-whatsapp/mautrix-whatsapp.db?_txlock=immediate";
           };
         };
 
