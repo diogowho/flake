@@ -3,9 +3,6 @@
   config,
   ...
 }:
-let
-  inherit (lib) mkForce;
-in
 {
   config = {
     networking = {

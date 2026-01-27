@@ -209,8 +209,6 @@ local servers = {
 
 	rust_analyzer = {},
 
-	sourcekit = {},
-
 	tailwindcss = {
 		filetypes = {
 			"vue",

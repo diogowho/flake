@@ -1,3 +1,4 @@
+{ ... }:
 {
   perSystem =
     { pkgs, ... }:
@@ -5,6 +6,7 @@
       formatter = pkgs.treefmt.withConfig {
         runtimeInputs = with pkgs; [
           # keep-sorted start
+          deadnix
           keep-sorted
           nixfmt
           shfmt
@@ -19,6 +21,12 @@
 
           formatter = {
             # keep-sorted start block=yes newline_separated=yes
+            deadnix = {
+              command = "deadnix";
+              options = [ "--edit" ];
+              includes = [ "*.nix" ];
+            };
+
             keep-sorted = {
               command = "keep-sorted";
               includes = [ "*" ];
