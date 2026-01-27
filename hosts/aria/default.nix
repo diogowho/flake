@@ -11,16 +11,16 @@
     profiles.headless.enable = true;
 
     services = {
-      # keep-sorted start
+      # keep-sorted start block=yes
 
       caddy.enable = true;
       matrix-bridges = {
         discord.enable = true;
-        matrix.enable = true;
-        pocket-id.enable = true;
-        postgresql.enable = true;
-        uptime-kuma.enable = true;
       };
+      matrix.enable = true;
+      pocket-id.enable = true;
+      postgresql.enable = true;
+      uptime-kuma.enable = true;
       # keep-sorted end
     };
 
