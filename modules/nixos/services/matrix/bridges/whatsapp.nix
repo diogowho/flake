@@ -69,6 +69,8 @@ in
         encryption = {
           allow = true;
           default = true;
+          require = true;
+          pickle_key = "$ENCRYPTION_PICKLE_KEY";
         };
       };
 
