@@ -39,6 +39,7 @@ in
         settings = {
           withJemalloc = true;
           server_name = config.networking.domain;
+          public_baseurl = "https://${cfg.domain}";
 
           bcrypt_rounds = 14;
 
