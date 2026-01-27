@@ -2,7 +2,7 @@
   imports = [
     # keep-sorted start
     ./caddy.nix
-    ./matrix.nix
+    ./matrix
     ./pocket-id.nix
     ./postgresql.nix
     ./uptime-kuma.nix

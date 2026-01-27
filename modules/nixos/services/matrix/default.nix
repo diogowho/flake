@@ -12,6 +12,8 @@ let
   cfg = config.sys.services.matrix;
 in
 {
+  imports = [ ./bridges ];
+
   options.sys.services.matrix = mkServiceOption "Matrix Homeserver" {
     port = 8448;
     domain = "matrix.${config.networking.domain}";
