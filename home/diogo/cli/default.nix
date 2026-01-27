@@ -2,6 +2,7 @@
   imports = [
     # keep-sorted start
     ./bat.nix
+    ./bun.nix
     ./eza.nix
     ./fastfetch
     ./fzf.nix
