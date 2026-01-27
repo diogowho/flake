@@ -16,6 +16,7 @@
       caddy.enable = true;
       matrix-bridges = {
         discord.enable = true;
+        whatsapp.enable = true;
       };
       matrix.enable = true;
       pocket-id.enable = true;
