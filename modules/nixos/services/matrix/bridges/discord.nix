@@ -33,7 +33,14 @@ in
           };
         };
 
-        homeserver.address = "https://matrix.${config.networking.domain}";
+        bridge.permissions = {
+          "@diogo:${config.networking.domain}" = "admin";
+        };
+
+        homeserver = {
+          address = "https://matrix.${config.networking.domain}";
+          domain = config.networking.domain;
+        };
       };
     };
   };
