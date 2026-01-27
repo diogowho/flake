@@ -13,7 +13,9 @@
     services = {
       # keep-sorted start
       caddy.enable = true;
+      matrix.enable = true;
       pocket-id.enable = true;
+      postgresql.enable = true;
       uptime-kuma.enable = true;
       # keep-sorted end
     };
