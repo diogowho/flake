@@ -13,7 +13,8 @@ let
 in
 {
   options.sys.services.matrix-bridges.whatsapp = mkServiceOption "Mautrix WhatsApp Bridge" {
-    port = 29335;
+    port = 29318;
+    host = "0.0.0.0";
   };
 
   config = mkIf cfg.enable {
@@ -37,8 +38,14 @@ in
           uri = "file:/var/lib/mautrix-whatsapp/mautrix-whatsapp.db?_txlock=immediate";
         };
 
-        bridge.permissions = {
-          "@diogo:${config.networking.domain}" = "admin";
+        bridge = {
+          relay = {
+            enabled = true;
+          };
+          permissions = {
+            "*" = "relay";
+            "@diogo:${config.networking.domain}" = "admin";
+          };
         };
 
         homeserver = {
