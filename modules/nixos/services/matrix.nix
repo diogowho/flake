@@ -18,10 +18,18 @@ in
   };
 
   config = mkIf cfg.enable {
-    sops.secrets.matrix = {
-      sopsFile = "${self}/secrets/services/matrix.yaml";
-      owner = "matrix-synapse";
-      group = "matrix-synapse";
+    sops.secrets = {
+      matrix = {
+        sopsFile = "${self}/secrets/services/matrix.yaml";
+        owner = "matrix-synapse";
+        group = "matrix-synapse";
+      };
+      matrix-oidc-secret = {
+        sopsFile = "${self}/secrets/services/matrix.yaml";
+        key = "oidc-secret";
+        owner = "matrix-synapse";
+        group = "matrix-synapse";
+      };
     };
 
     services = {
@@ -63,6 +71,24 @@ in
               x_forwarded = true;
             }
           ];
+
+          oidc_providers = {
+            pocket_id = {
+              idp_id = "pocket_id";
+              idp_name = "AS207118 ID";
+              issuer = "https://id.as207118.net";
+              client_id = "a9b22dd5-7a9b-423c-9245-ecce9f2243d1";
+              client_secret_path = config.sops.matrix-oidc-secret.path;
+              scopes = [
+                "openid"
+                "profile"
+              ];
+              user_mapping_provider.config = {
+                localpart_template = "{{ user.preferred_username }}";
+                display_name_template = "{{ user.name }}";
+              };
+            };
+          };
         };
 
         extraConfigFiles = [ config.sops.secrets.matrix.path ];
