@@ -33,6 +33,14 @@ in
             username = "discord";
             displayname = "Discord";
           };
+          database = {
+            type = "sqlite3";
+            uri = "file:${config.services.mautrix-discord.dataDir}/mautrix-discord.db?_txlock=immediate";
+            max_open_conns = 20;
+            max_idle_conns = 2;
+            max_conn_idle_time = null;
+            max_conn_lifetime = null;
+          };
         };
 
         bridge.permissions = {
