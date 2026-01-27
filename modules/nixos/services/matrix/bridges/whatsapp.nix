@@ -30,10 +30,11 @@ in
             username = "whatsapp";
             displayname = "WhatsApp";
           };
-          database = {
-            type = "sqlite3-fk-wal";
-            uri = "file:/var/lib/mautrix-whatsapp/mautrix-whatsapp.db?_txlock=immediate";
-          };
+        };
+
+        database = {
+          type = "sqlite3-fk-wal";
+          uri = "file:/var/lib/mautrix-whatsapp/mautrix-whatsapp.db?_txlock=immediate";
         };
 
         bridge.permissions = {
