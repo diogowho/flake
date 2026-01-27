@@ -98,6 +98,10 @@ in
 
       postgresql = {
         ensureDatabases = [ "matrix-synapse" ];
+        initdbArgs = [
+          "--lc-collate=C"
+          "--lc-ctype=C"
+        ];
         ensureUsers = lib.singleton {
           name = "matrix-synapse";
           ensureDBOwnership = true;
