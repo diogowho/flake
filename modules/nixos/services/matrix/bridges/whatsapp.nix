@@ -24,7 +24,6 @@ in
 
       settings = {
         appservice = {
-          address = "http://${cfg.host}:${toString cfg.port}";
           hostname = cfg.host;
           port = cfg.port;
           bot = {
@@ -44,6 +43,19 @@ in
         homeserver = {
           address = "https://matrix.${config.networking.domain}";
           domain = config.networking.domain;
+        };
+
+        network = {
+          displayname_template = "{{or .BusinessName .PushName .Phone}} (WA)";
+          history_sync = {
+            request_full_sync = true;
+          };
+          identity_change_notices = true;
+        };
+
+        encryption = {
+          allow = true;
+          default = true;
         };
       };
     };
