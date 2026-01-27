@@ -6,20 +6,14 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
-  inherit (lib.types) str;
+
+  inherit (self.lib) mkServiceOption;
 
   cfg = config.sys.services.caddy;
 in
 {
-  options.sys.services.caddy = {
-    enable = mkEnableOption "Caddy";
-
-    domain = mkOption {
-      type = str;
-      default = "diogocastro.net";
-      description = "Domain for Caddy";
-    };
+  options.sys.services.caddy = mkServiceOption "Caddy" {
+    domain = "diogocastro.net";
   };
 
   config = mkIf cfg.enable {

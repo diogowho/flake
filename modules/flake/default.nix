@@ -4,6 +4,7 @@
     ../../hosts
     ./args.nix
     ./formatter.nix
+    ./lib
     # keep-sorted end
   ];
 }

@@ -6,26 +6,15 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
-  inherit (lib.types) port str;
+
+  inherit (self.lib) mkServiceOption;
 
   cfg = config.sys.services.pocket-id;
 in
 {
-  options.sys.services.pocket-id = {
-    enable = mkEnableOption "Pocket ID";
-
-    port = mkOption {
-      type = port;
-      default = 1411;
-      description = "Port for Pocket ID";
-    };
-
-    domain = mkOption {
-      type = str;
-      default = "id.as207118.net";
-      description = "Domain name for Pocket ID";
-    };
+  options.sys.services.pocket-id = mkServiceOption "Pocket ID" {
+    port = 1411;
+    domain = "id.as207118.net";
   };
 
   config = mkIf cfg.enable {
@@ -55,7 +44,7 @@ in
       };
 
       caddy.virtualHosts.${cfg.domain}.extraConfig =
-        "reverse_proxy http://127.0.0.1:${toString cfg.port}";
+        "reverse_proxy http://${cfg.host}:${toString cfg.port}";
     };
   };
 }

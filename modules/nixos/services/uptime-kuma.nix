@@ -1,30 +1,20 @@
 {
   lib,
+  self,
   config,
   ...
 }:
 let
   inherit (lib) mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
-  inherit (lib.types) port str;
+
+  inherit (self.lib) mkServiceOption;
 
   cfg = config.sys.services.uptime-kuma;
 in
 {
-  options.sys.services.uptime-kuma = {
-    enable = mkEnableOption "Uptime Kuma";
-
-    port = mkOption {
-      type = port;
-      default = 4000;
-      description = "Port for Uptime Kuma";
-    };
-
-    domain = mkOption {
-      type = str;
-      default = "status.as207118.net";
-      description = "Domain name for Uptime Kuma";
-    };
+  options.sys.services.uptime-kuma = mkServiceOption "Uptime Kuma" {
+    port = 4000;
+    domain = "status.as207118.net";
   };
 
   config = mkIf cfg.enable {
@@ -39,7 +29,7 @@ in
       };
 
       caddy.virtualHosts.${cfg.domain}.extraConfig =
-        "reverse_proxy http://127.0.0.1:${toString cfg.port}";
+        "reverse_proxy http://${cfg.host}:${toString cfg.port}";
     };
   };
 }
