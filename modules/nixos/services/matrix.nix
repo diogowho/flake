@@ -72,8 +72,8 @@ in
             }
           ];
 
-          oidc_providers = {
-            pocket_id = {
+          oidc_providers = [
+            {
               idp_id = "pocket_id";
               idp_name = "AS207118 ID";
               issuer = "https://id.as207118.net";
@@ -83,12 +83,14 @@ in
                 "openid"
                 "profile"
               ];
-              user_mapping_provider.config = {
-                localpart_template = "{{ user.preferred_username }}";
-                display_name_template = "{{ user.name }}";
+              user_mapping_provider = {
+                config = {
+                  localpart_template = "{{ user.preferred_username }}";
+                  display_name_template = "{{ user.name }}";
+                };
               };
-            };
-          };
+            }
+          ];
         };
 
         extraConfigFiles = [ config.sops.secrets.matrix.path ];
