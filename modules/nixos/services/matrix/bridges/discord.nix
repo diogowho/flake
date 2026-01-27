@@ -9,7 +9,7 @@ let
 
   inherit (self.lib) mkServiceOption;
 
-  cfg = config.sys.services.mautrix-discord;
+  cfg = config.sys.services.matrix-bridges.discord;
 in
 {
   options.sys.services.matrix-bridges.discord = mkServiceOption "Mautrix Discord Bridge" {
