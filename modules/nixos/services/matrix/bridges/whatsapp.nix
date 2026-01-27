@@ -18,6 +18,11 @@ in
   };
 
   config = mkIf cfg.enable {
+    sops.secrets.mautrix-whatsapp = {
+      sopsFile = "${self}/secrets/services/matrix.yaml";
+      key = "whatsapp";
+    };
+
     services.mautrix-whatsapp = {
       enable = true;
 
@@ -66,6 +71,8 @@ in
           default = true;
         };
       };
+
+      environmentFile = [ config.sops.secrets.mautrix-whatsapp.path ];
     };
   };
 }
