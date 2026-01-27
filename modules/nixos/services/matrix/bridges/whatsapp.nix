@@ -13,7 +13,7 @@ let
 in
 {
   options.sys.services.matrix-bridges.whatsapp = mkServiceOption "Mautrix WhatsApp Bridge" {
-    port = 29318;
+    port = 29335;
     host = "0.0.0.0";
   };
 
