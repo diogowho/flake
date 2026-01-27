@@ -72,7 +72,7 @@ in
         };
       };
 
-      environmentFile = [ config.sops.secrets.mautrix-whatsapp.path ];
+      environmentFile = config.sops.secrets.mautrix-whatsapp.path;
     };
   };
 }
