@@ -78,7 +78,7 @@ in
               idp_name = "AS207118 ID";
               issuer = "https://id.as207118.net";
               client_id = "a9b22dd5-7a9b-423c-9245-ecce9f2243d1";
-              client_secret_path = config.sops.matrix-oidc-secret.path;
+              client_secret_path = config.sops.secrets.matrix-oidc-secret.path;
               scopes = [
                 "openid"
                 "profile"
