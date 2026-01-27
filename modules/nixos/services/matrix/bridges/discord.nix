@@ -17,6 +17,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+
     services.mautrix-discord = {
       enable = true;
 
