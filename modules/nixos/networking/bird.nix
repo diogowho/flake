@@ -126,7 +126,7 @@ in
 
         template bgp fog6 from peer6 {
           source address IP6_FOGIXP;
-          interface "eth-fogixp";
+          interface "eth1";
         }
 
         protocol bgp fogixp_r1 from fog6 {

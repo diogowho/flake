@@ -49,7 +49,7 @@ in
         };
       };
 
-      "eth-fogixp" = {
+      "eth1" = {
         ipv6.addresses = [
           {
             address = "2001:7f8:ca:1::20:7118:1";
