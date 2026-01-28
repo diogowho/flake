@@ -88,6 +88,21 @@ in
           hold time 600;
         }
 
+        template bgp peer6_bgptools from bgp6 {
+          source address IP6_HOST;
+          neighbor as 212232;
+
+          ipv6 {
+            add paths tx;
+            import all;
+            export all;
+          };
+
+          local role provider;
+
+          multihop 255;
+        }
+
         protocol device {
           scan time 5;
         }
@@ -149,6 +164,10 @@ in
           };
 
           default bgp_local_pref 400;
+        }
+
+        protocol bgp bgp_tools from peer6_bgptools {
+          neighbor 2a0c:2f07:9459::b18;
         }
       '';
     };
