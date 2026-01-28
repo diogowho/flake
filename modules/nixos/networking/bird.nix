@@ -93,13 +93,6 @@ in
           hold time 600;
         }
 
-        template bgp fog6 from peer6 {
-          source address IP6_FOGIXP;
-          interface "eth-fogixp";
-
-          default bgp_local_pref PEER;
-        }
-
         protocol device {
           scan time 5;
         }
@@ -136,6 +129,11 @@ in
           };
         }
 
+        template bgp fog6 from peer6 {
+          source address IP6_FOGIXP;
+          interface "eth-fogixp";
+        }
+
         protocol bgp fogixp_r1 from fog6 {
           neighbor 2001:7f8:ca:1::111 as ASN_FOGIXP;
           
@@ -144,8 +142,7 @@ in
             export where outgoing(ASN_FOGIXP, RS);
           };
 
-          default bgp_local_pref RS;
-          local role rs_client;
+          default bgp_local_pref 400;
         }
 
         protocol bgp fogixp_r2 from fog6 {
@@ -156,8 +153,7 @@ in
             export where outgoing(ASN_FOGIXP, RS);
           };
 
-          default bgp_local_pref RS;
-          local role rs_client;
+          default bgp_local_pref 400;
         }
       '';
     };
