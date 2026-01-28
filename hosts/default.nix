@@ -11,7 +11,7 @@
 
     hosts = {
       # keep-sorted start block=yes newline_separated=yes
-      aria = {
+      fra1 = {
         modules = [ inputs.disko.nixosModules.disko ];
       };
 

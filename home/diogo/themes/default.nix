@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./catppuccin.nix
+    # ./catppuccin.nix
     # keep-sorted end
   ];
 }

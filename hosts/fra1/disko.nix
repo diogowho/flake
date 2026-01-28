@@ -1,7 +1,7 @@
 {
   disko.devices = {
     disk = {
-      main = {
+      sda = {
         device = "/dev/sda";
         type = "disk";
         content = {
@@ -10,6 +10,7 @@
             boot = {
               size = "1M";
               type = "EF02";
+              priority = 1;
             };
             ESP = {
               size = "512M";
@@ -24,13 +25,8 @@
               size = "100%";
               content = {
                 type = "filesystem";
-                extraArgs = [ "-f" ];
-                format = "btrfs";
+                format = "ext4";
                 mountpoint = "/";
-                mountOptions = [
-                  "compress=zstd"
-                  "noatime"
-                ];
               };
             };
           };

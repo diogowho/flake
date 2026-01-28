@@ -22,7 +22,7 @@
         logReversePathDrops = true;
         logRefusedConnections = false;
 
-        # checkReversePath = mkForce false;
+        checkReversePath = lib.mkForce false;
       };
     };
   };
