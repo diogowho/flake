@@ -74,11 +74,6 @@ in
           accept;
         }
 
-        function fogixp() {
-          ixp(ASN_FOGIXP);
-          return true;
-        }
-
         template bgp bgp6 {
           local as ASN_SELF;
 
@@ -138,8 +133,8 @@ in
           neighbor 2001:7f8:ca:1::111 as ASN_FOGIXP;
           
           ipv6 {
-            import where incoming(ASN_FOGIXP, RS) && fogixp();
-            export where outgoing(ASN_FOGIXP, RS);
+            import filter ixp_import;
+            export filter export_own;
           };
 
           default bgp_local_pref 400;
@@ -149,8 +144,8 @@ in
           neighbor 2001:7f8:ca:1::222 as ASN_FOGIXP;
 
           ipv6 {
-            import where incoming(ASN_FOGIXP, RS) && fogixp();
-            export where outgoing(ASN_FOGIXP, RS);
+            import filter ixp_import;
+            export filter export_own;
           };
 
           default bgp_local_pref 400;
