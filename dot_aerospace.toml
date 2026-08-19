@@ -52,8 +52,8 @@ if.app-id = "net.imput.helium"
 run = ["move-node-to-workspace 1"]
 
 [[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-run = ["move-node-to-workspace 2", "layout tiling"]
+if.app-id = "com.googlecode.iterm2"
+run = ["move-node-to-workspace 2"]
 
 [[on-window-detected]]
 if.app-id = "com.utmapp.UTM"
